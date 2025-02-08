@@ -1,4 +1,9 @@
 const Home = () => {
-  return <h1 className="text-3xl text-violet-700 font-black">Welcome to Next JS APP</h1>;
+  return (
+    <div>
+      <h1 className="text-3xl font-black text-primary-500">Welcome to Next JS APP</h1>
+      <p>something 333</p>
+    </div>
+  );
 };
 export default Home;
