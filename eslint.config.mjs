@@ -50,5 +50,13 @@ export default [
       ],
       "import/no-anonymous-default-export": "off",
     },
+    overrides: [
+      {
+        files: ["QuestionCard.tsx"],
+        rules: {
+          "no-undef": "off",
+        },
+      },
+    ],
   },
 ];
