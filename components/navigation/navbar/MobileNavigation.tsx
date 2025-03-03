@@ -2,7 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import ROUTES from "@/constants/routes";
 
 import NavLinks from "./NavLinks";
@@ -20,6 +27,9 @@ const MobileNavigation = () => {
       </SheetTrigger>
       <SheetContent side="left" className="background-light900_dark200 border-none">
         <SheetTitle className="hidden">Are you absolutely sure?</SheetTitle>
+        <SheetDescription className="sr-only">
+          Left Sidebar for app navigation and authentification.
+        </SheetDescription>
         <Link href="/" className="flex items-center gap-1">
           <Image src="/images/site-logo.svg" width={23} height={23} alt="Dev Community Logo" />
           <p className="h2-bold font-space-grotesk text-dark-100 dark:text-light-900">
