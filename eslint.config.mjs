@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import tailwindcss from "eslint-plugin-tailwindcss";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,8 +21,16 @@ export default [
     "plugin:tailwindcss/recommended",
     "prettier"
   ),
+
   {
+    plugins: {
+      tailwindcss,
+    },
     rules: {
+      ...tailwindcss.configs.recommended.rules,
+      "tailwindcss/classnames-order": "warn", // Ensures Tailwind classes are sorted
+      "tailwindcss/enforces-shorthand": "warn", // Suggests shorthand class names
+      "tailwindcss/no-custom-classname": "off", // Turn off if using custom class names
       "import/order": [
         "error",
         {
@@ -50,13 +59,11 @@ export default [
       ],
       "import/no-anonymous-default-export": "off",
     },
-    overrides: [
-      {
-        files: ["QuestionCard.tsx"],
-        rules: {
-          "no-undef": "off",
-        },
-      },
-    ],
+  },
+  {
+    files: ["components/cards/QuestionCard.tsx"],
+    rules: {
+      "no-undef": "off",
+    },
   },
 ];
